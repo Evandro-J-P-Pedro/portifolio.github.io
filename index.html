@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Engenharia, Robótica e IA</title>
+  <meta name="description" content="Portfólio de Evandro José Pereira Pedro | Engenharia Elétrica, Robótica, IA e Automação. Projetos de energia, eletrificação, visão computacional e inovação.">
   <style>
     /* RESET */
     * {
@@ -38,10 +39,10 @@
       animation: glow 3s infinite alternate;
     }
 
-@keyframes glow { 
-  from { text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7; }
-  to   { text-shadow: 0 0 20px #ff0077, 0 0 30px #ff0077; } 
-}
+    @keyframes glow { 
+      from { text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7; }
+      to   { text-shadow: 0 0 20px #ff0077, 0 0 30px #ff0077; } 
+    }
    
     nav {
       margin-top: 1rem;
@@ -114,18 +115,45 @@
       margin: 0.5rem 0;
     }
 
-    ul li {
-      margin: 0.5rem 0;
-       padding: 10 0;
-    }
-
-    a {
-      color: #00ffe7;
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 0.6rem 1.2rem;
+      background: #00ffe7;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
       text-decoration: none;
+      transition: 0.3s;
     }
 
-    a:hover {
-      color: #ff0077;
+    .btn:hover {
+      background: #ff0077;
+      color: #fff;
+    }
+
+    /* Habilidades */
+    .skill {
+      margin-bottom: 1rem;
+    }
+
+    .skill p {
+      margin-bottom: 4px;
+    }
+
+    .bar {
+      background: #333;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      background: #00ffe7;
+      padding: 6px;
+      text-align: right;
+      font-size: 0.8rem;
+      color: #000;
+      font-weight: bold;
     }
 
     footer {
@@ -137,6 +165,53 @@
       font-size: 0.9rem;
       border-top: 2px solid #00ffe7;
     }
+
+    /* Ícone flutuante do WhatsApp */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: #25D366;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.2);
+    }
+
+    /* Formulário */
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: #ff0077;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #00ffe7;
+      color: #000;
+    }
   </style>
 </head>
 <body>
@@ -146,114 +221,103 @@
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
       <a href="#habilidades">Habilidades</a>
+      <a href="#estudos">Estudos</a>
       <a href="#contato">Contato</a>
-       <a href="#estudos">Estudos</a>
     </nav>
   </header>
 
-    <!-- Ícone flutuante do WhatsApp -->
-    
-    <a href="https://wa.me/5532998181992" target="_blank" style="
-         position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #25D366;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-    transform-origin: center center; /* mantém o centro fixo */
-">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-         alt="WhatsApp" width="28" height="28" style="margin-top:11px;">
-</a>
+  <!-- Hero -->
+  <section id="hero" style="text-align:center; padding:4rem 2rem;">
+    <h2 style="font-size:2.2rem; color:#00ffe7;">Transformando Energia e IA em Soluções Reais</h2>
+    <p style="margin:1rem 0; font-size:1.2rem; color:#ccc;">Engenharia Elétrica • Robótica • Automação • Inteligência Artificial</p>
+    <a href="#projetos" class="btn">🚀 Veja Meus Projetos</a>
+  </section>
 
-<style>
-a[href*="wa.me"]:hover {
-    transform: scale(1.2);
-}
-</style>
-  
+  <!-- Sobre -->
   <section id="sobre">
     <h2>Sobre mim</h2>
     <p>Sou engenheiro eletricista com especialização em Inteligência Artificial, Robótica e Automação Industrial. Tenho experiência no desenvolvimento de projetos de eletrificação rural e urbana, redes de distribuição e integração de sistemas de energia fotovoltaica, sempre buscando eficiência, segurança e sustentabilidade.
-      Atuo também na aplicação de IA e automação para otimização de processos industriais e energéticos, unindo conhecimento em sistemas embarcados, CLPs, visão computacional e aprendizado de máquina. Minha trajetória combina sólida formação acadêmica com experiência prática em projetos de energia, automação e inovação tecnológica, 
-    contribuindo para soluções que integram fontes renováveis e preparam a indústria para uma matriz energética mais inteligente</p>
+    Atuo também na aplicação de IA e automação para otimização de processos industriais e energéticos, unindo conhecimento em sistemas embarcados, CLPs, visão computacional e aprendizado de máquina.</p>
   </section>
 
+  <!-- Projetos -->
   <section id="projetos">
     <h2>Projetos</h2>
     <div class="grid">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1581091215367-59ab6f33c1b7?auto=format&fit=crop&w=800&q=80" alt="Projeto IA">
-        <h3>Visão Computacional para Inspeção</h3>
+        <h3>Visão Computacional</h3>
         <p>Rede neural aplicada para detecção de defeitos em peças industriais.</p>
+        <a href="https://github.com/evandro-j-p-pedro" target="_blank" class="btn">🔎 Ver mais</a>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Projeto Robótica">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Robô Autônomo">
         <h3>Robô Móvel Autônomo</h3>
         <p>Projeto de navegação autônoma utilizando ROS e sensores LIDAR.</p>
+        <a href="https://github.com/evandro-j-p-pedro" target="_blank" class="btn">🔎 Ver mais</a>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1581092580325-7a6a274b5b3b?auto=format&fit=crop&w=800&q=80" alt="Automação">
+        <img src="https://images.unsplash.com/photo-1581092580325-7a6a274b5b3b?auto=format&fit=crop&w=800&q=80" alt="Automação Industrial">
         <h3>Automação com CLP</h3>
-        <p>Controle de processos industriais usando CLP Siemens e supervisório SCADA.</p>
+        <p>Controle de processos industriais usando CLP Siemens e SCADA.</p>
+        <a href="https://github.com/evandro-j-p-pedro" target="_blank" class="btn">🔎 Ver mais</a>
       </div>
     </div>
   </section>
 
+  <!-- Habilidades -->
   <section id="habilidades">
-   <section id="habilidades">
-  <div style="display: flex; align-items: flex-start;">
-    <!-- Linha vermelha vertical -->
-    <div style="width: 4px; background-color: #ff0066; margin-right: 10px;"></div>
-
-    <!-- Conteúdo -->
-    <div>
-      <h2 style="color: #00f0c0;">⚡ Habilidades Técnicas</h2>
-      <ul style="list-style-position: inside; padding-left: 0; margin: 0;">
-        <li style="margin-bottom: 6px;">Programação: Python, C/C++, Ladder</li>
-        <li style="margin-bottom: 6px;">Inteligência Artificial: Aprendizado de máquina, Visão computacional, IA Generativa</li>
-        <li style="margin-bottom: 6px;">Automação: CLPs Siemens, SCADA, Automação industrial</li>
-        <li style="margin-bottom: 6px;">Energia: Projetos de eletrificação (rural, urbana, comercial, agrícola, solar), Redes de distribuição, Eficiência energética</li>
-        <li style="margin-bottom: 6px;">Ferramentas: ROS, TensorFlow, MATLAB, AutoCAD, Electric Office, Eplan</li>
-        <li style="margin-bottom: 6px;">Hardware: Raspberry Pi, Arduino, Sensores e atuadores industriais</li>
-      </ul>
+    <h2>⚡ Habilidades Técnicas</h2>
+    <div class="skill">
+      <p>Python</p>
+      <div class="bar"><div class="bar-fill" style="width: 85%;">85%</div></div>
     </div>
-  </div>
-</section>
+    <div class="skill">
+      <p>Inteligência Artificial</p>
+      <div class="bar"><div class="bar-fill" style="width: 80%;">80%</div></div>
+    </div>
+    <div class="skill">
+      <p>Automação Industrial</p>
+      <div class="bar"><div class="bar-fill" style="width: 75%;">75%</div></div>
+    </div>
+    <div class="skill">
+      <p>Projetos de Energia</p>
+      <div class="bar"><div class="bar-fill" style="width: 90%;">90%</div></div>
+    </div>
+  </section>
 
+  <!-- Estudos -->
+  <section id="estudos">
+    <h2>📚 Estudos & Certificações</h2>
+    <ul>
+      <li>Pós-graduação em Inteligência Artificial Computacional - UFV</li>
+      <li>Pós-graduação em Eficiência Energética - Anhanguera</li>
+      <li>Bacharelado em Engenharia Elétrica - UniAcademia</li>
+      <li>Bootcamps AWS, DIO & Machine Learning</li>
+    </ul>
+  </section>
 
+  <!-- Contato -->
   <section id="contato">
     <h2>Contato</h2>
     <p>📧 evandro.jose@ufv.br</p>
     <p>🔗 <a href="https://github.com/Evandro-J-P-Pedro" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/evandrojppedro" target="_blank">LinkedIn</a></p>
 
+    <form action="https://formspree.io/f/yourID" method="POST">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
- <footer>
+  <footer>
     <p>© 2025 - Evandro José Pereira Pedro | Portfólio Profissional</p>
   </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5532998181992" target="_blank" class="whatsapp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="28" height="28" style="margin-top:11px;">
+  </a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
