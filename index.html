@@ -3,93 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evandro José Pereira Pedro - Portfólio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <title>Portfólio - Evandro José Pereira Pedro</title>
   <style>
-    /* Reset */
+    /* RESET */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      color: #333;
-      background: #f4f4f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e0e0e0;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    /* Cabeçalho */
-    header {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
-      padding: 3rem 1rem;
-      text-align: center;
+    /* =======================
+       Cabeçalho Hero
+    ======================= */
+    .hero {
       position: relative;
-    }
-
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    nav {
-      margin-top: 1.5rem;
-    }
-
-    nav a {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #0f766e);
       color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      padding: 0 5%;
+      overflow: hidden;
     }
-
-    nav a:hover {
-      color: #ffdd57;
+    .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png');
+      opacity: 0.08;
     }
-
-    /* Seções */
-    section {
-      padding: 3rem 1rem;
-      text-align: center;
-      animation: fadeUp 1s ease;
+    .hero-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+      z-index: 2;
+      gap: 40px;
     }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1e3c72;
+    .hero-text {
+      flex: 1;
+      animation: fadeInLeft 1.2s ease;
     }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto;
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #38bdf8, #22c55e, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-text h2 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+    }
+    .hero-text p {
       font-size: 1.1rem;
-      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    .hero-photo {
+      flex: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-photo img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+      animation: fadeInRight 1.2s ease;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      margin-right: 15px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    .btn:hover {
+      background: #22c55e;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @media (max-width: 900px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .hero-photo img {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+      }
     }
 
-    /* Botão WhatsApp */
+    /* =======================
+       Seções
+    ======================= */
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      color: #00ffe7;
+      border-left: 5px solid #ff0077;
+      padding-left: 10px;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      color: #ff0077;
+      margin: 0.5rem 0;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #00ffe7;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #ff0077;
+    }
+
+    /* =======================
+       Footer
+    ======================= */
+    footer {
+      background: #002b5b;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      border-top: 2px solid #00ffe7;
+    }
+
+    /* =======================
+       WhatsApp Flutuante
+    ======================= */
     .whatsapp-float {
       position: fixed;
       width: 60px;
@@ -97,98 +221,112 @@
       bottom: 20px;
       right: 20px;
       background-color: #25d366;
-      color: #fff;
       border-radius: 50%;
       text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-      z-index: 100;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
-
     .whatsapp-float:hover {
-      transform: scale(1.1);
+      transform: scale(1.15) rotate(8deg);
+      background-color: #22c55e;
     }
-
-    /* Rodapé */
-    footer {
-      background: #1e3c72;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-
-    /* Animações */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header>
-    <img src="sua-foto.webp" alt="Evandro José" loading="lazy">
-    <h1>Evandro José Pereira Pedro</h1>
-    <p>Engenheiro Eletricista | Inteligência Artificial | Projetos de Energia</p>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#estudos">Estudos</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <!-- Cabeçalho Hero -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Evandro José Pereira Pedro</h1>
+        <h2>Engenheiro Eletricista • IA • Robótica • Eficiência Energética</h2>
+        <p>Transformando ideias em soluções inteligentes e sustentáveis com energia, automação e inteligência artificial.</p>
+        <a href="#projetos" class="btn">Ver Projetos</a>
+        <a href="#contato" class="btn btn-outline">Contato</a>
+      </div>
+      <div class="hero-photo">
+        <img src="foto-evandro.jpg" alt="Foto profissional de Evandro José Pereira Pedro">
+      </div>
+    </div>
   </header>
 
-  <!-- Seções -->
+  <!-- Seção Sobre -->
   <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>
-      Sou Engenheiro Eletricista apaixonado por tecnologia, inovação e inteligência artificial. 
-      Tenho experiência em projetos de redes elétricas, automação e desenvolvimento de soluções digitais.
-    </p>
+    <h2>Sobre mim</h2>
+    <p>Sou engenheiro eletricista com especialização em Inteligência Artificial e Robótica. Tenho experiência no desenvolvimento de projetos de eletrificação, automação industrial e sistemas de energia fotovoltaica, sempre buscando eficiência, segurança e inovação. Minha trajetória combina sólida formação acadêmica e prática, contribuindo para soluções inteligentes e sustentáveis.</p>
   </section>
 
+  <!-- Seção Projetos -->
   <section id="projetos">
     <h2>Projetos</h2>
-    <p>
-      Aqui você encontrará meus principais projetos em engenharia elétrica, IA e desenvolvimento web.
-    </p>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581091215367-59ab6f33c1b7?auto=format&fit=crop&w=800&q=80" alt="Projeto IA">
+        <h3>Visão Computacional</h3>
+        <p>Rede neural aplicada para detecção de defeitos em peças industriais.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Projeto Robótica">
+        <h3>Robô Autônomo</h3>
+        <p>Projeto de navegação autônoma utilizando ROS e sensores LIDAR.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581092580325-7a6a274b5b3b?auto=format&fit=crop&w=800&q=80" alt="Automação">
+        <h3>Automação Industrial</h3>
+        <p>Controle de processos industriais com CLPs Siemens e supervisório SCADA.</p>
+      </div>
+    </div>
   </section>
 
+  <!-- Seção Habilidades -->
+  <section id="habilidades">
+    <h2>Habilidades Técnicas</h2>
+    <ul>
+      <li>Programação: Python, C/C++, Ladder</li>
+      <li>Inteligência Artificial: Machine Learning, Visão Computacional, IA Generativa</li>
+      <li>Automação: CLPs Siemens, SCADA, Automação Industrial</li>
+      <li>Energia: Eletrificação rural/urbana, Redes de distribuição, Eficiência energética, Energia Solar</li>
+      <li>Ferramentas: ROS, TensorFlow, MATLAB, AutoCAD, Electric Office, Eplan</li>
+      <li>Hardware: Raspberry Pi, Arduino, Sensores e Atuadores Industriais</li>
+    </ul>
+  </section>
+
+  <!-- Seção Estudos -->
   <section id="estudos">
-    <h2>Estudos</h2>
-    <p>
-      Atualmente me especializo em Inteligência Artificial Computacional e busco sempre aprender novas tecnologias.
-    </p>
+    <h2>Estudos e Formação</h2>
+    <ul>
+      <li>Pós-Graduação em Inteligência Artificial Computacional - UFV</li>
+      <li>Pós-Graduação em Eficiência Energética - Anhanguera</li>
+      <li>Bacharelado em Engenharia Elétrica - UniAcademia</li>
+      <li>Cursos complementares em Robótica, Redes de Distribuição, Estatística e Machine Learning</li>
+    </ul>
   </section>
 
+  <!-- Seção Contato -->
   <section id="contato">
     <h2>Contato</h2>
-    <p>
-      Estou aberto a novas oportunidades e colaborações. Entre em contato comigo através do WhatsApp ou e-mail.
-    </p>
+    <p>📧 <a href="mailto:evandro.jose@ufv.br">evandro.jose@ufv.br</a></p>
+    <p>🔗 <a href="https://github.com/Evandro-J-P-Pedro" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/evandrojppedro" target="_blank">LinkedIn</a></p>
   </section>
 
-  <!-- Botão WhatsApp -->
-  <a href="https://wa.me/55329998181992" class="whatsapp-float" target="_blank">
-    💬
-  </a>
-
-  <!-- Rodapé -->
+  <!-- Footer -->
   <footer>
-    <p>© 2025 - Desenvolvido por Evandro José Pereira Pedro</p>
+    <p>© 2025 - Evandro José Pereira Pedro | Portfólio Profissional</p>
   </footer>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/55329998181992" class="whatsapp-float" target="_blank">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-whatsapp-2130457-1799571.png" alt="WhatsApp">
+  </a>
 
 </body>
 </html>
