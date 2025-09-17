@@ -148,20 +148,31 @@
 
   section { padding:100px 10%; font-family: 'Inter', Arial, sans-serif; }
 </style>
-
-
 <!-- Sobre Mim -->
-<section id="sobre-mim">
-  <h2>Sobre Mim</h2>
+<section id="sobre" style="padding:100px 10%; line-height:1.8;">
+  <h2 style="text-align:center; font-size:2.2rem; margin-bottom:40px;
+    background:linear-gradient(to right,#38bdf8,#22c55e,#facc15);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+    Sobre Mim
+  </h2>
 
-  <p>Sou <strong>Evandro José</strong>, engenheiro, <strong>analista de sistemas</strong> e entusiasta de tecnologia, apaixonado por integrar <strong>Robótica, Eficiência Energética, Automação Industrial e Inteligência Artificial</strong>. Minha trajetória combina experiência prática em <strong>projetos elétricos urbanos e rurais</strong>, otimização de sistemas, desenvolvimento de soluções estratégicas e aplicações robóticas inovadoras, sempre buscando unir tecnologia e impacto real.</p>
+  <p style="margin-bottom:20px;">
+    Sou <strong>Evandro José</strong>, engenheiro, <strong>analista de sistemas</strong> e entusiasta de tecnologia, apaixonado por integrar <strong>Robótica, Eficiência Energética, Automação Industrial e Inteligência Artificial</strong>. Minha trajetória combina experiência prática em <strong>projetos elétricos urbanos e rurais</strong>, otimização de sistemas, desenvolvimento de soluções estratégicas e aplicações robóticas inovadoras, sempre buscando unir tecnologia e impacto real.
+  </p>
 
-  <p>Domino ferramentas como <strong>Python, AutoCAD, Electric Office e Eplan</strong>, e estou constantemente me aprofundando em <strong>IA Generativa, Engenharia de Dados e Robótica Aplicada</strong>, criando soluções <strong>inteligentes, sustentáveis e de alto impacto</strong>.</p>
+  <p style="margin-bottom:20px;">
+    Domino ferramentas como <strong>Python, AutoCAD, Electric Office e Eplan</strong>, e estou constantemente me aprofundando em <strong>IA Generativa, Engenharia de Dados e Robótica Aplicada</strong>, criando soluções <strong>inteligentes, sustentáveis e de alto impacto</strong>.
+  </p>
 
-  <p>Fora do universo tecnológico, sou movido por curiosidade e criatividade: <strong>viajar, ler, explorar MMORPGs e Sous Like</strong>, e aprender novos idiomas me permitem expandir horizontes, desenvolver novas perspectivas e trazer inspiração para cada projeto.</p>
+  <p style="margin-bottom:20px;">
+    Fora do universo tecnológico, sou movido por curiosidade e criatividade: <strong>viajar, ler, explorar MMORPGs e Sous Like</strong>, e aprender novos idiomas me permitem expandir horizontes, desenvolver novas perspectivas e trazer inspiração para cada projeto.
+  </p>
 
-  <p><strong>Acredito que cada desafio é uma oportunidade para inovar, e meu compromisso é transformar ideias em soluções inteligentes e robóticas que gerem impacto real e sustentável.</strong></p>
+  <p style="margin-bottom:20px;">
+    <strong>Acredito que cada desafio é uma oportunidade para inovar, e meu compromisso é transformar ideias em soluções inteligentes e robóticas que gerem impacto real e sustentável.</strong>
+  </p>
 </section>
+
 
 <!-- Estudos -->
 <section id="estudos">
@@ -240,14 +251,15 @@ window.addEventListener('load', setActiveLink);
 
 // Projetos - carrossel contínuo
 const projetos = [
-  {id:1,title:'Dashboard de Consumo de Energia',desc:'Automação de relatórios em Excel/PDF, envio por e-mail e dashboard interativo em Python Dash.'},
-  {id:2,title:'Simulação Robótica no CoppeliaSim',desc:'Controle de manipulador esférico com cinemática direta e inversa em Python.'},
-  {id:3,title:'Robô Autônomo no MATLAB',desc:'Controle cinemático de robô diferencial Pioneer3DX no ambiente AuRoRA.'},
-  {id:4,title:'Projeto de Eficiência Energética',desc:'Análise de consumo e otimização de energia em sistemas industriais.'},
-  {id:5,title:'Sistema Fotovoltaico Integrado',desc:'Projeto e implementação de sistemas solares residenciais e comerciais.'},
-  {id:6,title:'Automação de Relatórios RPA',desc:'Integração de dados e geração automática de relatórios empresariais.'},
-  {id:7,title:'Mapeamento de Terrenos com Drones',desc:'Uso de drones para criação de mapas topográficos e curvas de nível.'}
+  {id:1, title:'Dashboard de Consumo de Energia', desc:'Automação de relatórios em Excel/PDF, envio por e-mail e dashboard interativo em Python Dash.', file:'projeto1_dash.html'},
+  {id:2, title:'Calculadora de circuitos',desc:'Simular circuitos resistivos com fonte de tensão ou corrente, calculando resistência equivalente, corrente, tensão e potência.', file:'projeto2_calculadoracirc.html'},
+  {id:3, title:'Robô PIONEER Autônomo no MATLAB', desc:'Controle cinemático de robô diferencial Pioneer3DX no ambiente Matlab + AuRoRA.', file:'projeto3-pionir-matlab.html'},
+  {id:4, title:'Robô Bebop Autônomo',desc:'Controle cinemático de robô diferencial Beebop no ambiente Matlab + AuRoRA.', file:'projeto4_beebop-matlab.html'},
+  {id:5, title:'Sistema Fotovoltaico Integrado', desc:'EM DESENVOLVIMENTO.', file:'projeto5_fotovoltaico.html'},
+  {id:6, title:'Automação de Relatórios RPA', desc:'EM DESENVOLVIMENTO.', file:'projeto6_rpa.html'},
+  {id:7, title:'Mapeamento de Terrenos com Drones', desc:'EM DESENVOLVIMENTO (Mestrado).', file:'projeto7_drones.html'}
 ];
+
 
 const track = document.getElementById('projetosTrack');
 
@@ -257,10 +269,15 @@ function renderProjects() {
   allProjects.forEach(p => {
     const card = document.createElement('div');
     card.classList.add('card');
-    card.innerHTML = `<h3>${p.title}</h3><p>${p.desc}</p><a href="projeto.html?id=${p.id}">Ver mais</a>`;
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <a href="${p.file}">Ver mais</a>
+    `;
     track.appendChild(card);
   });
 }
+
 renderProjects();
 </script>
 
