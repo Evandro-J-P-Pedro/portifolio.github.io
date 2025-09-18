@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeto - uniciclo pionir </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#0f172a; color:#fff; line-height:1.6; scroll-behavior:smooth; text-align:center; }
+    a { text-decoration:none; color:#8be9ff; }
+    section { padding:160px 10% 60px; display:flex; flex-direction:column; align-items:center; }
+    h1, h2 { text-align:center; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h1 { font-size:2.5rem; margin-bottom:20px; }
+    h2 { font-size:1.8rem; margin:30px 0 15px; }
+    p.lead { max-width:900px; margin:0 auto 25px; font-size:1.1rem; color:#cbd5e1; }
+    .explain { max-width:800px; margin:15px auto 30px; color:#e6eef8; background:rgba(255,255,255,0.03); padding:20px; border-radius:10px; font-size:1rem; text-align:left; }
+    .explain ul { margin-top:8px; margin-left:20px; color:#cfe7ff; }
+    .highlight-box { background:rgba(56,189,248,0.1); border-left:4px solid #38bdf8; padding:15px 20px; border-radius:8px; margin:15px 0; text-align:left; }
+    .takeaway { font-weight:700; color:#d1f7d1; margin-top:10px; }
+    .back-btn { display:inline-block; margin:40px 0; padding:12px 30px; background:#22c55e; color:#fff; border-radius:30px; text-decoration:none; font-weight:600; transition:0.3s; }
+    .back-btn:hover { background:#38bdf8; transform:translateY(-3px); }
+    pre { background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; overflow-x:auto; text-align:left; }
+
+    /* Header fixo */
+    header { position:fixed; top:0; left:0; width:100%; background:rgba(15,23,42,0.95); z-index:10; display:flex; justify-content:space-between; align-items:center; padding:15px 5%; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+    .logo { font-weight:700; font-size:1.2rem; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    nav a { margin-left:20px; color:#fff; font-weight:600; transition:0.3s; }
+    nav a.active { color:#38bdf8; }
+    nav a:hover { color:#38bdf8; }
+  </style>
+</head>
+<body>
+<!-- Header fixo -->
+<header>
+  <div class="logo">Evandro J.P. Pedro</div>
+  <nav>
+    <a href="index.html#hero id="hero" class="nav-link">Home</a>
+    <a href="index.html#pitch" class="nav-link">Apresentação</a>
+    <a href="index.html#sobre" class="nav-link">Sobre</a>
+    <a href="index.html#estudos" class="nav-link">Estudos</a>
+    <a href="projetos.html" class="active">Projetos</a>
+    <a href="index.html#contato" class="nav-link">Contato</a>
+  </nav>
+</header>>
+
+<section>
+  <h1>🤖 Análise de Simulação: Missão de Inspeção com Drone Autônomo</h1>
+  <p class="lead">
+    Tecnologia: <strong>MATLAB</strong> <br>
+    Desenvolvimento e validação de um sistema de controle de voo para um drone quadrotor em um ambiente de estufa inteligente.
+  </p>
+
+  <h2>🧠 Resumo e Objetivo do Projeto</h2>
+  <div class="highlight-box">
+    Este projeto demonstra o planejamento e controle autônomo de um drone quadrotor para uma missão de inspeção em uma estufa vertical. O objetivo é navegar por corredores estreitos, ajustar a altitude e manter a orientação da câmera para inspecionar pontos de cultivo pré-definidos, garantindo voo seguro e captura precisa de dados.
+  </div>
+
+  <h2>🎥 Simulação em Ação</h2>
+  <div class="highlight-box">
+    <video style="width:100%; max-width:100%; border-radius: 8px;" controls muted loop playsinline>
+      <source src="robot_beebop.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+
+
+  <h2>⚙️ Estratégia de Controle</h2>
+  <div class="highlight-box">
+    A arquitetura de controle, implementada em MATLAB, opera em tempo real para executar o voo com precisão:
+    <ul>
+      <li><strong>Planejamento de Trajetória:</strong> Uma máquina de estados baseada em tempo gera a pose (posição XYZ e atitude) desejada, definindo uma rota otimizada para inspeção.</li>
+      <li><strong>Controlador Dinâmico:</strong> Um controlador de malha fechada calcula os comandos de propulsão e os torques de atitude (`roll`, `pitch`, `yaw`) necessários para minimizar o erro entre a pose atual e a desejada.</li>
+      <li><strong>Atuação:</strong> Os sinais de controle são aplicados ao modelo do drone, garantindo manobras precisas, voo estável e pouso seguro.</li>
+    </ul>
+  </div>
+
+  <h2>📈 Análise dos Resultados da Simulação</h2>
+  
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>1. Trajetória 3D e Fidelidade do Voo</h3>
+    <img src="5.jpg" alt="Navegação em XYZ" class="analysis-img">
+    <p>Este gráfico 3D é a prova visual da alta fidelidade do sistema de controle. A linha azul sólida, que representa a trajetória real do drone, se sobrepõe quase perfeitamente à linha tracejada vermelha, que é a trajetória planejada. Este resultado confirma que o drone é capaz de seguir caminhos complexos e mudanças de altitude com precisão intransigente, fundamental para evitar colisões em um ambiente de estufa restrito.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>2. Convergência da Posição (X, Y e Z)</h3>
+    <img src="2.jpg" alt="Evolução Temporal de X, Y e Z" class="analysis-img">
+    <p>Os gráficos de posição revelam a excelência da resposta dinâmica do sistema. A linha azul (`Atual`) converge rapidamente para os valores desejados (linha tracejada vermelha), demonstrando um **tempo de acomodação (settling time)** extremamente baixo e **nenhum sobre-sinal (overshoot)** perceptível. Isso indica que o controlador é robusto e evita oscilações, garantindo que o drone alcance cada ponto de inspeção com estabilidade e eficiência. A precisão na evolução de Z é particularmente crítica para a inspeção de diferentes prateleiras.</p>
+  </div>
+  
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>3. Controle de Atitude (Roll, Pitch, Yaw)</h3>
+    <img src="3.jpg" alt="Controle de Atitude" class="analysis-img">
+    <p>Para uma inspeção eficaz, o controle de atitude é tão importante quanto o de posição. O gráfico inferior, mostrando a orientação de guinada (`ψ`), destaca o desempenho superior do controlador. As transições angulares, como as mudanças de 90° e 180°, são executadas com rapidez e precisão milimétrica. O controle de `Roll` (`φ`) e `Pitch` (`θ`) (gráficos superiores) se mantém em zero, garantindo que a plataforma da câmera permaneça horizontal e estável durante o voo, crucial para a qualidade das imagens.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>4. Sinais de Controle (Força e Torques)</h3>
+    <img src="4.jpg" alt="Sinais de Controle" class="analysis-img">
+    <img src="10.jpg" alt="Propulsão Vertical" class="analysis-img">
+    <p>A análise dos sinais de controle mostra a inteligência do sistema. Os torques (`u2`, `u3`, `u4`) revelam picos calculados e precisos durante as manobras, aplicando a força exata para girar o drone. A propulsão vertical (`u1`), mostrada no gráfico inferior, demonstra que a força é ajustada dinamicamente para subir, descer e manter a altitude, sem nunca exceder os limites operacionais. Isso é a prova de um sistema responsivo e seguro, que otimiza a energia e evita movimentos bruscos.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>5. Visão Geral da Simulação</h3>
+    <img src="1.jpg" alt="Snapshot da Simulação" class="analysis-img">
+    <p>Este snapshot final da simulação visualiza o resultado completo da missão de 100 segundos. A trajetória do drone (linha preta) envolve todo o circuito da estufa, passando por cada baia de cultivo (caixas brancas) e retornando à base. O sucesso do voo de ida e volta e a precisão da trajetória em um ambiente 3D complexo validam a robustez do planejamento de voo e a eficácia do sistema de controle.</p>
+  </div>
+
+  <h2>🏆 Conclusão e Destaques Técnicos</h2>
+  <div class="highlight-box">
+    Os resultados da simulação confirmam a eficácia e a robustez do sistema de controle, superando os desafios da navegação autônoma em um ambiente restrito.
+    <ul>
+      <li><strong>Controle de Atitude e Posição:</strong> O drone demonstrou um voo suave e preciso, mantendo a estabilidade e a orientação exata da câmera em todos os pontos de inspeção.</li>
+      <li><strong>Desempenho Dinâmico Excepcional:</strong> A ausência de oscilações e o baixo tempo de resposta atestam a qualidade do controlador dinâmico.</li>
+      <li><strong>Segurança e Eficiência:</strong> Os sinais de controle foram mantidos dentro dos limites, garantindo operações seguras e eficientes.</li>
+    </ul>
+  </div>
+
+  <a href="projetos.html" class="back-btn">⬅ Voltar aos Projetos</a>
+</section>
+
+</body>

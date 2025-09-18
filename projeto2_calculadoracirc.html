@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeto - Calculadora de Circuitos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#0f172a; color:#fff; line-height:1.6; scroll-behavior:smooth; text-align:center; }
+    a { text-decoration:none; color:#8be9ff; }
+    section { padding:160px 10% 60px; display:flex; flex-direction:column; align-items:center; }
+    h1, h2 { text-align:center; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h1 { font-size:2.5rem; margin-bottom:20px; }
+    h2 { font-size:1.8rem; margin:30px 0 15px; }
+    p.lead { max-width:900px; margin:0 auto 25px; font-size:1.1rem; color:#cbd5e1; }
+    .explain { max-width:800px; margin:15px auto 30px; color:#e6eef8; background:rgba(255,255,255,0.03); padding:20px; border-radius:10px; font-size:1rem; text-align:left; }
+    .explain ul { margin-top:8px; margin-left:20px; color:#cfe7ff; }
+    .highlight-box { background:rgba(56,189,248,0.1); border-left:4px solid #38bdf8; padding:15px 20px; border-radius:8px; margin:15px 0; text-align:left; }
+    .takeaway { font-weight:700; color:#d1f7d1; margin-top:10px; }
+    .back-btn { display:inline-block; margin:40px 0; padding:12px 30px; background:#22c55e; color:#fff; border-radius:30px; text-decoration:none; font-weight:600; transition:0.3s; }
+    .back-btn:hover { background:#38bdf8; transform:translateY(-3px); }
+    pre { background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; overflow-x:auto; text-align:left; }
+
+    /* Header fixo */
+    header { position:fixed; top:0; left:0; width:100%; background:rgba(15,23,42,0.95); z-index:10; display:flex; justify-content:space-between; align-items:center; padding:15px 5%; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+    .logo { font-weight:700; font-size:1.2rem; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    nav a { margin-left:20px; color:#fff; font-weight:600; transition:0.3s; }
+    nav a.active { color:#38bdf8; }
+    nav a:hover { color:#38bdf8; }
+  </style>
+</head>
+<body>
+
+<!-- Header fixo -->
+<header>
+  <div class="logo">Evandro J.P. Pedro</div>
+  <nav>
+    <a href="index.html#hero id="hero" class="nav-link">Home</a>
+    <a href="index.html#pitch" class="nav-link">Apresentação</a>
+    <a href="index.html#sobre" class="nav-link">Sobre</a>
+    <a href="index.html#estudos" class="nav-link">Estudos</a>
+    <a href="projetos.html" class="active">Projetos</a>
+    <a href="index.html#contato" class="nav-link">Contato</a>
+  </nav>
+</header>>
+
+<section>
+  <h1>⚡ Calculadora de Circuitos – Resistores em Série e Paralelo</h1>
+  <p class="lead">
+    Linguagem: <strong>Python</strong> <br>
+    Simulação prática de circuitos resistivos com cálculos automáticos de <strong>resistência equivalente</strong>, <strong>corrente</strong>, <strong>tensão</strong> e <strong>potência</strong>.
+  </p>
+
+  <!-- Objetivo -->
+  <h2>🧠 Objetivo do Projeto</h2>
+  <div class="highlight-box">
+    Ferramenta projetada para <strong>estudantes e profissionais de engenharia elétrica</strong> analisarem circuitos resistivos de forma rápida e eficiente.  
+    Com ela, é possível:  
+    <ul>
+      <li>Selecionar <strong>fonte de tensão ou corrente</strong></li>
+      <li>Definir o <strong>tipo de ligação dos resistores</strong> (série ou paralelo)</li>
+      <li>Inserir <strong>vários resistores</strong> dinamicamente</li>
+      <li>Obter cálculos automáticos de:
+        <ul>
+          <li><strong>Resistência equivalente (Req)</strong></li>
+          <li><strong>Corrente total</strong></li>
+          <li><strong>Tensão total</strong></li>
+          <li><strong>Potência total</strong></li>
+          <li>Valores individuais de <strong>tensão</strong>, <strong>corrente</strong> e <strong>potência</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Estrutura -->
+  <h2>🧩 Estrutura do Código</h2>
+  <div class="highlight-box">
+    <ul>
+      <li><strong>calcular_req(resistores, tipo)</strong>: calcula a <strong>resistência equivalente</strong></li>
+      <li><strong>calc_tensao(resistores, tipo, valor_fonte)</strong>: simula circuito com <strong>fonte de tensão</strong>, calculando <strong>corrente</strong> e <strong>potência</strong> de cada resistor</li>
+      <li><strong>calcular_corrente(resistores, tipo, valor_fonte)</strong>: simula circuito com <strong>fonte de corrente</strong>, determinando <strong>tensão</strong> e <strong>corrente</strong> de cada resistor</li>
+      <li><strong>mostrar_resultados(...)</strong>: exibe <strong>resistência equivalente</strong>, <strong>corrente/tensão total</strong> e tabela detalhada</li>
+      <li><strong>main()</strong>: interface interativa para entrada de dados e execução de cálculos</li>
+    </ul>
+  </div>
+
+  <!-- Exemplo -->
+  <h2>📊 Exemplo de Saída</h2>
+  <div class="highlight-box">
+    <pre>
+=== Calculadora de Circuitos ===
+1 - Fonte de Tensão
+2 - Fonte de Corrente
+Escolha a fonte: 1
+Digite o valor da fonte: 12
+
+Tipo de ligação dos resistores:
+1 - Série
+2 - Paralelo
+Escolha: 1
+Digite o valor do resistor (Ω): 100
+Adicionar outro resistor? (s/n): s
+Digite o valor do resistor (Ω): 200
+Adicionar outro resistor? (s/n): n
+
+--- RESULTADOS DO CIRCUITO ---
+Resistência Equivalente (Req): 300.00 Ω
+Tensão da Fonte: 12.00 V
+Corrente Total: 0.04 A
+
+Resistor | Tensão (V) | Corrente (A) | Potência (W)
+--------------------------------------------------
+R1=100 Ω | 4.00 V | 0.04 A | 0.16 W
+R2=200 Ω | 8.00 V | 0.04 A | 0.32 W
+--------------------------------------------------
+Potência Total: 0.48 W
+    </pre>
+  </div>
+
+  <!-- Destaques Técnicos -->
+  <h2>✅ Destaques Técnicos</h2>
+  <div class="highlight-box">
+    <ul>
+      <li>Simulação completa com <strong>fonte de tensão ou corrente</strong></li>
+      <li>Cálculo automático da <strong>resistência equivalente</strong> em série ou paralelo</li>
+      <li>Determinação detalhada de <strong>tensão</strong>, <strong>corrente</strong> e <strong>potência</strong> por resistor</li>
+      <li>Interface de terminal <strong>intuitiva e eficiente</strong></li>
+      <li>Resultados claros, organizados e prontos para análise</li>
+    </ul>
+  </div>
+<!-- LINKS e CTA -->
+<section id="links-proximos-passos">
+  <h2>🔗 Links e Próximos Passos</h2>
+  <div class="explain" style="max-width:800px; margin:0 auto; text-align:left; color:#cfe7ff;">
+    <ul style="list-style:none; padding:0; font-size:1rem; line-height:1.8;">
+      <li>📂 <a href="https://github.com/evandro-j-p-pedro" target="_blank" class="code">Repositório GitHub</a> — código, README, instruções e scripts da Calculadora de Circuitos.</li>
+      <li>🛠️ <strong>Próximos passos:</strong>
+        <ul style="list-style:disc; margin-top:10px; margin-left:20px;">
+          <li>Adicionar interface gráfica interativa com Tkinter ou PyQt.</li>
+          <li>Permitir exportação de resultados em PDF ou CSV para relatórios acadêmicos e profissionais.</li>
+          <li>Implementar suporte a múltiplas fontes e tipos de componentes (capacitores, indutores, etc.).</li>
+          <li>Visualizar o circuito com diagrama esquemático dinâmico.</li>
+          <li>Incluir alertas automáticos para sobrecarga ou limites de corrente/tensão.</li>
+        </ul>
+      </li>
+    </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+  <a href="projetos.html" class="back-btn">⬅ Voltar aos Projetos</a>
+</section>
+
+</body>
+</html>

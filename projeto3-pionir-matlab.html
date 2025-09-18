@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeto - uniciclo pionir </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:#0f172a; color:#fff; line-height:1.6; scroll-behavior:smooth; text-align:center; }
+    a { text-decoration:none; color:#8be9ff; }
+    section { padding:160px 10% 60px; display:flex; flex-direction:column; align-items:center; }
+    h1, h2 { text-align:center; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h1 { font-size:2.5rem; margin-bottom:20px; }
+    h2 { font-size:1.8rem; margin:30px 0 15px; }
+    p.lead { max-width:900px; margin:0 auto 25px; font-size:1.1rem; color:#cbd5e1; }
+    .explain { max-width:800px; margin:15px auto 30px; color:#e6eef8; background:rgba(255,255,255,0.03); padding:20px; border-radius:10px; font-size:1rem; text-align:left; }
+    .explain ul { margin-top:8px; margin-left:20px; color:#cfe7ff; }
+    .highlight-box { background:rgba(56,189,248,0.1); border-left:4px solid #38bdf8; padding:15px 20px; border-radius:8px; margin:15px 0; text-align:left; }
+    .takeaway { font-weight:700; color:#d1f7d1; margin-top:10px; }
+    .back-btn { display:inline-block; margin:40px 0; padding:12px 30px; background:#22c55e; color:#fff; border-radius:30px; text-decoration:none; font-weight:600; transition:0.3s; }
+    .back-btn:hover { background:#38bdf8; transform:translateY(-3px); }
+    pre { background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; overflow-x:auto; text-align:left; }
+
+    /* Header fixo */
+    header { position:fixed; top:0; left:0; width:100%; background:rgba(15,23,42,0.95); z-index:10; display:flex; justify-content:space-between; align-items:center; padding:15px 5%; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+    .logo { font-weight:700; font-size:1.2rem; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    nav a { margin-left:20px; color:#fff; font-weight:600; transition:0.3s; }
+    nav a.active { color:#38bdf8; }
+    nav a:hover { color:#38bdf8; }
+  </style>
+</head>
+<body>
+<!-- Header fixo -->
+<header>
+  <div class="logo">Evandro J.P. Pedro</div>
+  <nav>
+    <a href="index.html#hero id="hero" class="nav-link">Home</a>
+    <a href="index.html#pitch" class="nav-link">Apresentação</a>
+    <a href="index.html#sobre" class="nav-link">Sobre</a>
+    <a href="index.html#estudos" class="nav-link">Estudos</a>
+    <a href="projetos.html" class="active">Projetos</a>
+    <a href="index.html#contato" class="nav-link">Contato</a>
+  </nav>
+</header>>
+
+
+
+<section>
+  <h1>🤖 Análise de Simulação: Navegação de Robô Autônomo</h1>
+  <p class="lead">
+    Tecnologia: <strong>MATLAB</strong> <br>
+    Análise de um sistema de controle cinemático para um robô móvel em um ambiente industrial, focado em <strong>seguimento de trajetória</strong> e <strong>controle de orientação</strong>.
+  </p>
+
+  <h2>🧠 Resumo e Objetivo do Projeto</h2>
+  <div class="highlight-box">
+    Este projeto demonstra o desenvolvimento de um sistema de controle para um robô Pioneer 3DX com tração diferencial. O objetivo é navegar por um circuito pré-definido em uma linha de montagem, realizando paradas estratégicas em quatro baias de produção com requisitos precisos de posição e orientação, antes de retornar à base.
+  </div>
+
+  <h2>⚙️ Estratégia de Controle</h2>
+  <div class="highlight-box">
+    A arquitetura de controle, implementada em MATLAB, utiliza uma abordagem de seguimento de <em>waypoints</em> (pontos de passagem) baseada em tempo:
+    <ul>
+      <li><strong>Geração de Trajetória:</strong> Uma máquina de estados define a pose (posição e orientação) desejada em intervalos de tempo, criando um caminho sequencial.</li>
+      <li><strong>Controlador Cinemático:</strong> Um controlador em malha fechada calcula as velocidades linear (v) e angular (ω) necessárias para minimizar o erro entre a pose atual e a desejada.</li>
+      <li><strong>Atuação:</strong> Os sinais de controle são enviados ao simulador para movimentar o robô, utilizando uma estratégia de "parar-girar-avançar" para garantir o alinhamento preciso.</li>
+    </ul>
+  </div>
+
+  <h2>🎥 Simulação em Ação</h2>
+  <div class="highlight-box">
+    <video style="width:100%; max-width:100%; border-radius: 8px;" controls muted loop playsinline>
+      <source src="simulacao-robo.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+  </div>
+
+  <h2>📈 Análise dos Resultados da Simulação</h2>
+  
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>1. Rastreamento de Trajetória no Plano XY</h3>
+    <img src="5.png" alt="Navegação no Plano XY" class="analysis-img">
+    <p>A imagem demonstra a alta fidelidade do robô ao seguir o caminho desejado (tracejado vermelho). A trajetória real (linha azul) é suave e acompanha a referência de perto, convertendo as curvas de 90 graus do plano em manobras fisicamente realizáveis, o que valida a eficácia do controlador de seguimento de caminho.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>2. Evolução Temporal da Posição (X e Y)</h3>
+    <img src="6.png" alt="Evolução Temporal de X" class="analysis-img">
+    <img src="7.png" alt="Evolução Temporal de Y" class="analysis-img">
+    <p>Os gráficos mostram que a posição real do robô (linha azul) converge rapidamente para os valores desejados (linha tracejada vermelha) com sobre-sinal (overshoot) mínimo e tempo de acomodação baixo. Isso indica que o controlador responde de forma estável e eficiente às mudanças de referência, sem movimentos bruscos.</p>
+  </div>
+  
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>3. Controle de Orientação (Ângulo de Guinada, ψ)</h3>
+    <img src="3.png" alt="Controle de Orientação" class="analysis-img">
+    <p>O controle do ângulo de guinada (ψ) é fundamental para o alinhamento nas baias. O gráfico inferior mostra que a orientação real (laranja) segue a referência (azul) com altíssima precisão. As transições rápidas e bem amortecidas, como a curva de 180° em t=20s, demonstram a robustez do controlador de orientação.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>4. Sinais de Controle (Velocidades)</h3>
+    <img src="4.png" alt="Sinais de Controle" class="analysis-img">
+    <p>Os sinais de controle revelam a lógica do sistema. A velocidade linear (u₁) diminui ao se aproximar de um alvo, chegando a zero durante as curvas. A velocidade angular (u₂) mostra picos durante as reorientações e oscilações finas durante o movimento em linha reta, indicando correções constantes para manter o robô no curso, característico de um sistema responsivo.</p>
+  </div>
+
+  <div class="explain" style="width: 100%; max-width: 900px;">
+    <h3>5. Visão Geral da Simulação</h3>
+    <img src="1.1.png" alt="Snapshot da Simulação" class="analysis-img">
+    <p>Este quadro, retirado do final da simulação, oferece uma visão completa do percurso. A linha preta sólida (trajetória real) envolve todo o circuito, passando pelas baias (retângulos pretos) e terminando próximo ao ponto final, confirmando o sucesso da missão de navegação de 80 segundos.</p>
+  </div>
+
+  <h2>🏆 Conclusão e Destaques Técnicos</h2>
+  <div class="highlight-box">
+    Os resultados validam a eficácia do sistema de controle, destacando-se:
+    <ul>
+      <li><strong>Alta Precisão no Seguimento de Trajetória:</strong> O robô aderiu de perto ao caminho planejado.</li>
+      <li><strong>Controle de Orientação Robusto:</strong> O robô atingiu todas as orientações especificadas com rapidez e exatidão.</li>
+      <li><strong>Desempenho Estável e Eficiente:</strong> Os sinais de controle geraram um movimento suave e manobras eficientes.</li>
+      <li><strong>Próximos Passos Sugeridos:</strong> Implementar desvio de obstáculos dinâmico, otimizar a trajetória com algoritmos (A*, RRT) e integrar com sistemas de percepção (câmeras, LiDAR).</li>
+    </ul>
+  </div>
+
+  <a href="projetos.html" class="back-btn">⬅ Voltar aos Projetos</a>
+</section>
+
+</body>
+</html>

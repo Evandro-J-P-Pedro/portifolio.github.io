@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeto - Dashboard de Consumo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+   * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Segoe UI", sans-serif; background:#0f172a; color:#fff; line-height:1.6; scroll-behavior:smooth; }
+  a { text-decoration:none; }
+  section { padding:100px 10%; }
+  h2 { text-align:center; margin-bottom:40px; font-size:2.3rem; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  
+    body { font-family:'Inter',sans-serif; background:#0f172a; color:#fff; margin:0; padding:0; line-height:1.6; }
+    
+    section { padding:160px 10% 60px; } /* espaço para header fixo */
+    h1, h2 { text-align:center; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h1 { font-size:2.5rem; margin-bottom:10px; }
+    h2 { font-size:1.6rem; margin:30px 0 10px; }
+    p.lead { max-width:900px; margin:0 auto 20px; font-size:1.05rem; color:#cbd5e1; text-align:center; }
+    .screenshot { display:flex; justify-content:center; margin:20px 0; }
+    .screenshot img { max-width:85%; border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,0.5); background:#fff; padding:8px; }
+    .explain { max-width:900px; margin:12px auto 30px; color:#e6eef8; background:rgba(255,255,255,0.02); padding:18px; border-radius:8px; font-size:0.98rem; }
+    .explain ul { margin-top:8px; margin-left:20px; color:#cfe7ff; }
+    .takeaway { font-weight:700; color:#d1f7d1; margin-top:10px; }
+    .back-btn { display:block; text-align:center; margin:40px auto 0; padding:12px 25px; background:#22c55e; color:#fff; border-radius:30px; text-decoration:none; font-weight:600; transition:0.3s; width:max-content; }
+    .back-btn:hover { background:#38bdf8; transform:translateY(-3px); }
+    a.code { color:#8be9ff; text-decoration:none; background:rgba(255,255,255,0.03); padding:2px 6px; border-radius:4px; }
+	
+	/* Header fixo */
+  header { position:fixed; top:0; left:0; width:100%; background:rgba(15,23,42,0.95); z-index:10; display:flex; justify-content:space-between; align-items:center; padding:15px 5%; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+  .logo { font-weight:700; font-size:1.2rem; background:linear-gradient(to right,#38bdf8,#22c55e,#facc15); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  nav a { margin-left:20px; color:#fff; font-weight:600; transition:0.3s; }
+  nav a.active { color:#38bdf8; }
+  nav a:hover { color:#38bdf8; }
+  </style>
+</head>
+<body>
+
+<!-- Header fixo -->
+<header>
+  <div class="logo">Evandro J.P. Pedro</div>
+  <nav>
+    <a href="index.html#hero id="hero" class="nav-link">Home</a>
+    <a href="index.html#pitch" class="nav-link">Apresentação</a>
+    <a href="index.html#sobre" class="nav-link">Sobre</a>
+    <a href="index.html#estudos" class="nav-link">Estudos</a>
+    <a href="projetos.html" class="active">Projetos</a>
+    <a href="index.html#contato" class="nav-link">Contato</a>
+  </nav>
+</header>>
+<section>
+  <h1>📊 Dashboard de Consumo de Energia</h1>
+  <p class="lead">
+    Integração entre automação de relatórios (Geração Excel/PDF + envio por e-mail) e um dashboard interativo em Python (Dash + Plotly).
+    Abaixo estão prints do dashboard e exemplos do PDF gerado — cada imagem tem uma explicação técnica e interpretação dos resultados.
+  </p>
+
+  <!-- IMAGEM 1: KPIs + DatePicker + Linha com média -->
+  <h2>✨ Visão Geral e KPIs</h2>
+  <div class="screenshot">
+    <img src="dash 1.png" alt="KPIs: média, máximo e mínimo; DatePicker e gráfico de evolução do consumo">
+  </div>
+
+  <div class="explain">
+    <strong>O que você está vendo</strong>
+    <ul>
+      <li><strong>KPIs (top row)</strong>: Média diária, Máximo e Mínimo — valores calculados sobre o período filtrado. Unidade: <em>kWh</em>.</li>
+      <li><strong>DatePicker</strong>: selecione o intervalo para recalcular métricas e redesenhar gráficos. O botão "Atualizar" aplica o filtro.</li>
+      <li><strong>Gráfico de linha</strong>: evolução diária do consumo; a linha tracejada horizontal mostra a <strong>média</strong> do período.</li>
+    </ul>
+
+    <strong>Interpretação</strong>
+    <ul>
+      <li>Picos isolados acima da média indicam dias de maior demanda — pode ser operação extra, falha em equipamento ou eventos pontuais.</li>
+      <li>A média ajuda a identificar desvios: se muitos dias estão acima da média, indica tendência de alta e necessidade de análise.</li>
+    </ul>
+
+    <div class="takeaway">Ação sugerida: investigar dias com picos (ver tabela de alertas) e correlacionar com logs operacionais/faturamento.</div>
+  </div>
+
+  <!-- IMAGEM 2: Top 10 + Tabela de alertas -->
+  <h2>📊 Top 10 Consumos & Tabela de Alertas</h2>
+  <div class="screenshot">
+    <img src="dash 3.png" alt="Top 10 consumo diário em barras e tabela de alertas com destaque para dias críticos">
+  </div>
+
+  <div class="explain">
+    <strong>O que você está vendo</strong>
+    <ul>
+      <li><strong>Top 10 Consumo Diário</strong>: barras dos 10 maiores consumos (aqui mostra em ordem cronológica). Útil para priorizar investigação.</li>
+      <li><strong>Tabela de Alertas</strong>: lista dos dias marcados como alerta (ex.: >= P90). A linha em rosa indica o dia crítico mais alto.</li>
+    </ul>
+
+    <strong>Como os alertas são gerados (resumo técnico)</strong>
+    <ul>
+      <li>Calculamos o <code>P90</code> (percentil 90) do consumo. Dias com consumo >= P90 são marcados como alerta.</li>
+      <li>Também calculamos um <em>limite</em> alternativo: <code>limite = média + 1σ</code> (média + 1 desvio padrão) — usado como referência complementar.</li>
+    </ul>
+
+    <div class="takeaway">Ação sugerida: priorizar os dias na tabela para análise de causa raiz e gerar medidas corretivas (ex.: redução de carga programada).</div>
+  </div>
+
+  <!-- IMAGEM 3: PDF - resumo + gráfico -->
+  <h2>📑 Exemplo do Relatório em PDF (Resumo Executivo)</h2>
+  <div class="screenshot">
+    <img src="pdf1.png" alt="PDF: capa com período, resumo executivo, indicadores e gráfico de consumo diário">
+  </div>
+
+  <div class="explain">
+    <strong>O que o PDF inclui</strong>
+    <ul>
+      <li><strong>Cabeçalho</strong> com período analisado e timestamp de geração.</li>
+      <li><strong>Resumo Executivo</strong>: texto sintetizando média, pico, mínimo e número de dias em alerta — ideal para gestores.</li>
+      <li><strong>Indicadores</strong>: seção com Média / Máximo / Mínimo exibidos de forma limpa.</li>
+      <li><strong>Gráficos</strong>: cópia dos gráficos do dashboard (linha de consumo e barras), otimizados para impressão.</li>
+    </ul>
+
+    <div class="takeaway">Por que isso importa: o PDF permite envio automático para stakeholders sem necessidade de acesso ao dashboard — ótimo para relatórios mensais.</div>
+  </div>
+
+  <!-- IMAGEM 4: PDF - top10 e tabela -->
+  <h2>📑 Exemplo do Relatório em PDF (Top e Alertas)</h2>
+  <div class="screenshot">
+    <img src="pdf2.png" alt="PDF: gráfico top10 e tabela listando dias com alerta de consumo">
+  </div>
+
+  <div class="explain">
+    <strong>O que está mostrando</strong>
+    <ul>
+      <li>Top 10 consumos apresentados para leitura rápida (priorização).</li>
+      <li>Tabela final com os <strong>Dias com ALERTA</strong> e seus valores, pronta para anexar a ordens de serviço ou comunicar equipes.</li>
+    </ul>
+
+    <div class="takeaway">Sugestão operacional: anexar essas páginas ao e-mail automático e incluir um pequeno checklist de verificação para cada dia em alerta.</div>
+  </div>
+
+  <!-- CÓDIGO EXPLICATIVO -->
+  <h2>🧾 Trecho de Código (Como é calculado o P90 e os alertas)</h2>
+  <div class="explain" style="font-family:monospace; font-size:0.95rem;">
+    <pre>
+# Exemplo em pandas (trecho)
+p90 = df['Consumo_KWh'].quantile(0.90)
+limite_std = df['Consumo_KWh'].mean() + df['Consumo_KWh'].std()
+df['Alerta'] = df['Consumo_KWh'] >= p90
+    </pre>
+    <div class="takeaway">Este trecho calcula o percentil 90 (P90), cria um limite alternativo (média + 1σ) e marca os dias com consumo >= P90 como alerta.</div>
+  </div>
+
+  <!-- LINKS e CTA -->
+  <h2>🔗 Links e Próximos Passos</h2>
+  <div class="explain">
+    <ul>
+      <li>📂 <a href="https://github.com/evandro-j-p-pedro" target="_blank" class="code">Repositório GitHub</a> — código, README, instruções e scripts.</li>
+      <li>🛠️ Próximo passo: integrar previsões (Projeto IA) para alertas preditivos e simular cenários de redução de demanda.</li>
+    </ul>
+  </div>
+
+<a href="projetos.html" class="back-btn">⬅ Voltar aos Projetos</a>
+</section>
+
+</body>
+</html>
